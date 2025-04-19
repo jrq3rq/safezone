@@ -1,23 +1,94 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ---------------------------
+# General
+# ---------------------------
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+Thumbs.db
+*.log
+*.swp
+*.swo
+*.tmp
 
+# ---------------------------
+# Node.js & NPM/Yarn
+# ---------------------------
+
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
+
+# ---------------------------
+# Build Artifacts
+# ---------------------------
+
+build/
+dist/
+coverage/
+.cache/
+.next/
+out/
+
+# ---------------------------
+# Firebase
+# ---------------------------
+
+.firebase/
+.firebaserc
+firebase-debug.log
+
+# ---------------------------
+# Environment Configs (Frontend & Backend)
+# ---------------------------
+
+.env
+.env.*
+!.env.example
+
+backend/.env
+config/serviceAccountKey.json
+
+# ---------------------------
+# React (Frontend)
+# ---------------------------
+
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+public/*.map
+src/**/*.map
+
+# ---------------------------
+# Editor / OS Specific
+# ---------------------------
+
+.vscode/
+.idea/
+*.code-workspace
+
+# ---------------------------
+# Testing / Linting
+# ---------------------------
+
+jest.config.js
+jest.setup.js
+coverage/
+test-results/
+
+# ---------------------------
+# Miscellaneous
+# ---------------------------
+
+.pnp/
+.pnp.js
+package-lock.json
+yarn.lock
+*.tgz
+
+# Optional: Ignore MacOS metadata if collaborating
+.AppleDouble
+.LSOverride
+Icon?
