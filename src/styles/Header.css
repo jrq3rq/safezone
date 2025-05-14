@@ -1,0 +1,131 @@
+.header-title {
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+  }
+
+  .header-icon {
+    margin-right: 0.5rem; /* Space between icon and text */
+    font-size: 1.5rem; /* Match the font size of the title */
+    color: #000000;
+    /* Black to match newspaper style */
+    /* color: #4B0082; */
+     /* Deep Purple for spiritual theme */
+
+  }
+
+  .header-title-link {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    align-items: center; /* Ensure icon and text align */
+  }
+
+  .header-title-link:hover {
+    color: #666666;
+  }
+
+  .header-title-link:focus {
+    outline: none;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+
+  .header-link {
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  }
+
+  .header-link:hover {
+    color: #666666;
+    background-color: rgba(102, 102, 102, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .header-link:focus {
+    outline: none;
+  }
+
+  /* Active route styling (optional, if using NavLink instead of Link) */
+  .header-link.active {
+    color: #666666;
+    font-weight: 600;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header-title {
+      font-size: 1.25rem;
+    }
+
+    .header-icon {
+      font-size: 1.25rem;
+    }
+
+    .header-nav {
+      gap: 0.75rem;
+    }
+
+    .header-link {
+      font-size: 0.9375rem;
+      padding: 0.2rem 0.4rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-title {
+      font-size: 1rem;
+    }
+
+    .header-icon {
+      font-size: 1rem;
+      margin-right: 0.3rem;
+    }
+
+    .header-nav {
+      gap: 0.5rem;
+    }
+
+    .header-link {
+      font-size: 0.875rem;
+      padding: 0.15rem 0.3rem;
+    }
+  }
+
+  /* Ultra-wide screens */
+  @media (min-width: 1280px) {
+    .header-title {
+      font-size: 1.75rem;
+    }
+
+    .header-icon {
+      font-size: 1.75rem;
+    }
+
+    .header-nav {
+      gap: 1.5rem;
+    }
+
+    .header-link {
+      font-size: 1.125rem;
+    }
+  }

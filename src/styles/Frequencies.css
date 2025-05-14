@@ -1,0 +1,219 @@
+.frequencies-container {
+    height: calc(100vh - 0px); /* Account for fixed header height */
+    background: #f5f5f5; /* Off-white, paper-like background */
+    padding: 0.5rem 1rem; /* Reduced padding for a tighter layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto; /* Scrollable if content overflows */
+    border: 1px solid #d1d5db; /* Subtle border to mimic a page edge */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+  }
+
+  .frequencies-title {
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000; /* Black for classic newspaper look */
+    margin-top: 6rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase; /* Uppercase for headline style */
+    border-bottom: 2px solid #000000; /* Underline to mimic a headline */
+    padding-bottom: 0.25rem;
+  }
+
+  .frequency-list {
+    max-width: 720px; /* Wider to fit multi-column layout */
+    width: 100%;
+    flex: 1; /* Take remaining space */
+    overflow-y: auto; /* Scrollable list */
+    padding: 0 0.25rem;
+    margin-bottom: 0.5rem;
+    column-count: 2; /* Multi-column layout */
+    column-gap: 1.5rem; /* Space between columns */
+    column-rule: 1px solid #d1d5db; /* Divider between columns */
+  }
+
+  /* Custom scrollbar */
+  .frequency-list::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .frequency-list::-webkit-scrollbar-track {
+    background: #d1d5db;
+    border-radius: 3px;
+  }
+
+  .frequency-list::-webkit-scrollbar-thumb {
+    background: #666666;
+    border-radius: 3px;
+  }
+
+  .frequency-list::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+  }
+
+  .frequency-item {
+    margin-bottom: 0.375rem; /* Tighter spacing between items */
+    background: none; /* No background for a cleaner look */
+    border-bottom: 1px solid #d1d5db; /* Subtle divider between items */
+    padding-bottom: 0.25rem;
+    break-inside: avoid-column; /* Prevent items from breaking across columns */
+  }
+
+  .frequency-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0.5rem; /* Reduced padding for compactness */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #000000;
+    text-transform: uppercase;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .frequency-header:hover {
+    color: #666666; /* Muted gray on hover */
+  }
+
+  .frequency-header:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3); /* Focus ring for accessibility */
+  }
+
+  .frequency-header span {
+    font-size: 0.9375rem;
+  }
+
+  .frequency-header .arrow {
+    font-size: 0.75rem; /* Smaller arrow for balance */
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .frequency-header[aria-expanded="true"] .arrow {
+    transform: rotate(180deg); /* Rotate arrow when expanded */
+  }
+
+  .frequency-details {
+    padding: 0.25rem 0.5rem; /* Reduced padding for compactness */
+    background: none;
+  }
+
+  .frequency-details p {
+    margin-bottom: 0.125rem; /* Tighter spacing between lines */
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    font-size: 0.8125rem; /* Smaller font to fit more content */
+    color: #333333;
+    line-height: 1.5; /* Adjusted line height */
+    text-align: justify; /* Justified text for newspaper style */
+  }
+
+  .frequency-details strong {
+    color: #000000;
+    font-weight: 700;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .frequencies-container {
+      padding: 0.5rem;
+    }
+
+    .frequencies-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .frequency-list {
+      column-count: 1; /* Single column on smaller screens */
+      padding: 0 0.25rem;
+    }
+
+    .frequency-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .frequency-header {
+      font-size: 0.875rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    .frequency-header span {
+      font-size: 0.875rem;
+    }
+
+    .frequency-header .arrow {
+      font-size: 0.625rem;
+    }
+
+    .frequency-details {
+      padding: 0.2rem 0.4rem;
+    }
+
+    .frequency-details p {
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+  }
+
+  /* Ultra-small screens (e.g., iPhone 5/SE) */
+  @media (max-height: 568px) {
+    .frequencies-title {
+      font-size: 1.25rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.375rem;
+    }
+
+    .frequency-header {
+      font-size: 0.8125rem;
+      padding: 0.15rem 0.3rem;
+    }
+
+    .frequency-header span {
+      font-size: 0.8125rem;
+    }
+
+    .frequency-header .arrow {
+      font-size: 0.5rem;
+    }
+
+    .frequency-details p {
+      font-size: 0.6875rem;
+      line-height: 1.3;
+    }
+  }
+
+  /* Wide screens */
+  @media (min-width: 1024px) {
+    .frequencies-container {
+      padding: 1rem;
+    }
+
+    .frequency-list {
+      max-width: 840px; /* Wider for larger screens */
+      column-count: 3; /* More columns on wide screens */
+      column-gap: 2rem;
+    }
+
+    .frequencies-title {
+      font-size: 2.25rem;
+    }
+
+    .frequency-header {
+      font-size: 1rem;
+      padding: 0.375rem 0.75rem;
+    }
+
+    .frequency-details p {
+      font-size: 0.875rem;
+    }
+  }
