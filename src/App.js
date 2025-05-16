@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Frequencies from "./pages/Frequencies";
 import SolfeggioStudio from "./pages/SolfeggioStudio";
 import Footer from "./components/Footer";
+import ChakraChants from "./pages/ChakraChants";
 
 function App() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
             {/* <Route path="/about" element={<About />} /> */}
             <Route path="/solfeggio-studio" element={<SolfeggioStudio />} />
             <Route path="/frequencies" element={<Frequencies />} />
+            <Route path="/chakra-chants" element={<ChakraChants />} />
           </Routes>
         </motion.div>
       </AnimatePresence>

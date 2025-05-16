@@ -64,7 +64,8 @@ const Home = () => {
       <section className="home-section">
         <h2 className="home-section-title">Get Started with MantraMind</h2>
         <p className="home-section-text">
-          Dive into your wellness journey today. Create a personalized mantra on the <Link to="/mantras" className="home-section-link">Mantras page</Link>, explore the healing tones on the <Link to="/frequencies" className="home-section-link">Frequencies page</Link>, or learn more about our mission on the <Link to="/about" className="home-section-link">About page</Link>.
+                  Dive into your wellness journey today.
+                  explore the healing tones on the <Link to="/frequencies" className="home-section-link">Frequencies page</Link>.
         </p>
       </section>
     </div>

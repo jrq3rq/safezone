@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { FaCaretDown } from 'react-icons/fa'; // Import FaChevronDown icon
 import '../styles/Frequencies.css';
 
 const Frequencies = () => {
@@ -60,10 +61,24 @@ const Frequencies = () => {
   ];
 
   const [selectedFreq, setSelectedFreq] = useState(null);
+  const detailsRefs = useRef([]);
 
   const toggleFrequency = (index) => {
-    setSelectedFreq(selectedFreq === index ? null : index);
+    console.log('Toggling frequency:', index, 'Current selectedFreq:', selectedFreq);
+    setSelectedFreq(prev => (prev === index ? null : index));
   };
+
+  useEffect(() => {
+    detailsRefs.current.forEach((ref, index) => {
+      if (ref) {
+        if (selectedFreq === index) {
+          ref.style.maxHeight = `${ref.scrollHeight}px`;
+        } else {
+          ref.style.maxHeight = '0px';
+        }
+      }
+    });
+  }, [selectedFreq]);
 
   return (
     <div className="frequencies-container slide">
@@ -71,17 +86,26 @@ const Frequencies = () => {
       <div className="frequency-list">
         {freqData.map((freq, index) => (
           <div key={freq.hz} className="frequency-item">
-            <button className="frequency-header" onClick={() => toggleFrequency(index)}>
+            <button
+              type="button"
+              className="frequency-header"
+              onClick={() => toggleFrequency(index)}
+              aria-expanded={selectedFreq === index}
+              aria-controls={`freq-details-${index}`}
+            >
               <span>{freq.hz} Hz - {freq.effect}</span>
-              <span className="arrow">{selectedFreq === index ? '▲' : '▼'}</span>
+              <span className="arrow"><FaCaretDown /></span>
             </button>
-            {selectedFreq === index && (
-              <div className="frequency-details">
-                <p><strong>Effect:</strong> {freq.effect}</p>
-                <p><strong>Uses:</strong> {freq.uses}</p>
-                <p><strong>Health Benefits:</strong> {freq.benefits}</p>
-              </div>
-            )}
+            <div
+              className="frequency-details"
+              id={`freq-details-${index}`}
+              ref={(el) => (detailsRefs.current[index] = el)}
+              style={{ display: selectedFreq === index ? 'block' : 'none' }}
+            >
+              <p><strong>Effect:</strong> {freq.effect}</p>
+              <p><strong>Uses:</strong> {freq.uses}</p>
+              <p><strong>Health Benefits:</strong> {freq.benefits}</p>
+            </div>
           </div>
         ))}
       </div>

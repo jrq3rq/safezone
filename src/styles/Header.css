@@ -1,4 +1,32 @@
-.header-title {
+.App-header {
+    background: #f5f5f5; /* Default off-white background for Home */
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease-in-out;
+  }
+
+  .App-header-solfeggio {
+    background: #E6E6FA; /* Soft lavender for SolfeggioStudio page */
+  }
+
+  .App-header-frequencies {
+    background: #F0FFF0; /* Honeydew for Frequencies page */
+  }
+
+  .App-header-chakras {
+    background: #FFF5EE; /* Seashell for Chakras page */
+  }
+
+  .header-title {
     font-family: 'Georgia', 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     font-weight: 700;
@@ -6,17 +34,14 @@
     margin: 0;
     text-transform: uppercase;
     display: flex;
-    align-items: center; /* Align icon and text vertically */
+    align-items: center;
   }
 
   .header-icon {
-    margin-right: 0.5rem; /* Space between icon and text */
-    font-size: 1.5rem; /* Match the font size of the title */
-    color: #000000;
-    /* Black to match newspaper style */
-    /* color: #4B0082; */
-     /* Deep Purple for spiritual theme */
-
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    color: #4B0082;
+    transition: color 0.2s ease-in-out;
   }
 
   .header-title-link {
@@ -24,10 +49,14 @@
     text-decoration: none;
     transition: color 0.2s ease-in-out;
     display: flex;
-    align-items: center; /* Ensure icon and text align */
+    align-items: center;
   }
 
   .header-title-link:hover {
+    color: #666666;
+  }
+
+  .header-title-link:hover .header-icon {
     color: #666666;
   }
 
@@ -65,10 +94,10 @@
     outline: none;
   }
 
-  /* Active route styling (optional, if using NavLink instead of Link) */
-  .header-link.active {
-    color: #666666;
-    font-weight: 600;
+  .header-link-active {
+    /* color: #4B0082; */
+    background-color: rgba(102, 102, 102, 0.1);
+    transform: translateY(0);
   }
 
   /* Responsive adjustments */
