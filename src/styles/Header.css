@@ -40,7 +40,8 @@
   .header-icon {
     margin-right: 0.5rem;
     font-size: 1.5rem;
-    color: #4B0082;
+    color: #000000;
+    /* color: #4B0082; */
     transition: color 0.2s ease-in-out;
   }
 

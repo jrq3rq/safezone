@@ -12,22 +12,56 @@ import ChakraChants from "./pages/ChakraChants";
 
 function App() {
   const location = useLocation();
+  const direction = location.state?.direction || 'right';
+
+  const variants = {
+    initial: (direction) => ({
+      x: direction === 'right' ? "100%" : "-100%",
+      rotateY: direction === 'right' ? 3 : -3, // Reduced rotation for smoother effect
+      transformPerspective: 1000,
+      scale: 0.98, // Slight scale to simulate page lift
+      boxShadow: direction === 'right' ? "-5px 0 10px rgba(0, 0, 0, 0.05)" : "5px 0 10px rgba(0, 0, 0, 0.05)", // Softer shadow
+    }),
+    animate: {
+      x: 0,
+      rotateY: 0,
+      transformPerspective: 1000,
+      scale: 1,
+      boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
+      transition: {
+        duration: 0.6, // Slightly longer for smoother feel
+        ease: [0.4, 0, 0.2, 1], // Gradual easing for natural flow
+      },
+    },
+    exit: (direction) => ({
+      x: direction === 'right' ? "-100%" : "100%",
+      rotateY: direction === 'right' ? -3 : 3,
+      transformPerspective: 1000,
+      scale: 0.98,
+      boxShadow: direction === 'right' ? "5px 0 10px rgba(0, 0, 0, 0.05)" : "-5px 0 10px rgba(0, 0, 0, 0.05)",
+      transition: {
+        duration: 0.5, // Slightly shorter exit for overlap
+        ease: [0.4, 0, 0.2, 1],
+        delay: 0.1, // Start exiting slightly before the new page enters
+      },
+    }),
+  };
 
   return (
     <div className="App">
       <Header />
-      <AnimatePresence mode="wait">
+      <AnimatePresence initial={false}>
         <motion.div
           key={location.key}
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          variants={variants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          custom={direction}
+          style={{ position: 'absolute', width: '100%', height: '100%' }}
         >
           <Routes location={location}>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/mantras" element={<Mantras />} /> */}
-            {/* <Route path="/about" element={<About />} /> */}
             <Route path="/solfeggio-studio" element={<SolfeggioStudio />} />
             <Route path="/frequencies" element={<Frequencies />} />
             <Route path="/chakra-chants" element={<ChakraChants />} />
