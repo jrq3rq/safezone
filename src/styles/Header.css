@@ -1,5 +1,5 @@
 .App-header {
-    background: #f5f5f5; /* Default off-white background for Home */
+    background: #f5f5f5;
     height: 60px;
     display: flex;
     align-items: center;
@@ -9,21 +9,24 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 10;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
     transition: background 0.3s ease-in-out;
   }
 
+  .App-header-pulseflow {
+    background: #E0F7FA;
+  }
+
   .App-header-solfeggio {
-    background: #E6E6FA; /* Soft lavender for SolfeggioStudio page */
+    background: #E6E6FA;
   }
 
   .App-header-frequencies {
-    background: #F0FFF0; /* Honeydew for Frequencies page */
+    background: #F0FFF0;
   }
 
   .App-header-chakras {
-    background: #FFF5EE; /* Seashell for Chakras page */
+    background: #FFF5EE;
   }
 
   .header-title {
@@ -41,7 +44,6 @@
     margin-right: 0.5rem;
     font-size: 1.5rem;
     color: #000000;
-    /* color: #4B0082; */
     transition: color 0.2s ease-in-out;
   }
 
@@ -62,7 +64,35 @@
   }
 
   .header-title-link:focus {
+    color: #666666;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .header-toggle {
+    display: none;
+    background: transparent;
+    font-size: 1.5rem;
+    color: #000000;
+    cursor: pointer;
+    padding: 0.5rem;
+    border: none;
     outline: none;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .header-toggle:hover {
+    color: #666666;
+    transform: rotate(15deg);
+  }
+
+  .header-toggle:focus {
+    color: #666666;
+    background: rgba(102, 102, 102, 0.1);
+    border-radius: 4px;
+  }
+
+  .header-overlay {
+    display: none;
   }
 
   .header-nav {
@@ -81,28 +111,90 @@
     font-size: 1rem;
     font-weight: 500;
     padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    transition: color 0.2s ease-in-out, transform 0.1s ease-in-out;
   }
 
   .header-link:hover {
     color: #666666;
-    background-color: rgba(102, 102, 102, 0.1);
     transform: translateY(-1px);
   }
 
   .header-link:focus {
-    outline: none;
+    color: #000000;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
   }
 
   .header-link-active {
-    /* color: #4B0082; */
-    background-color: rgba(102, 102, 102, 0.1);
+    color: #666666;
     transform: translateY(0);
   }
 
-  /* Responsive adjustments */
+  /* Mobile view */
   @media (max-width: 768px) {
+    .header-toggle {
+      display: block;
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      z-index: 1002;
+    }
+
+    .header-overlay {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      z-index: 1001;
+      pointer-events: none;
+    }
+
+    .header-overlay-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .header-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: calc(100vh - 0px);
+      background: #f5f5f5;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1002;
+      border-right: 1px solid #d1d5db;
+      border-bottom: 1px solid #d1d5db;
+    }
+
+    .header-nav-open {
+      transform: translateX(0);
+    }
+
+    .header-toggle-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1003; /* Ensure above sidebar content */
+    }
+
+    .header-link {
+      font-size: 1.125rem;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      text-align: center;
+    }
+
     .header-title {
       font-size: 1.25rem;
     }
@@ -110,17 +202,9 @@
     .header-icon {
       font-size: 1.25rem;
     }
-
-    .header-nav {
-      gap: 0.75rem;
-    }
-
-    .header-link {
-      font-size: 0.9375rem;
-      padding: 0.2rem 0.4rem;
-    }
   }
 
+  /* Ultra-small screens */
   @media (max-width: 480px) {
     .header-title {
       font-size: 1rem;
@@ -131,17 +215,30 @@
       margin-right: 0.3rem;
     }
 
+    .header-toggle {
+      font-size: 1.25rem;
+      padding: 0.3rem;
+      top: 0.9rem;
+      right: 1rem;
+    }
+
     .header-nav {
-      gap: 0.5rem;
+      width: 200px;
+      padding: 1rem;
+    }
+
+    .header-toggle-close {
+      top: 0.75rem;
+      right: 0.75rem;
     }
 
     .header-link {
-      font-size: 0.875rem;
-      padding: 0.15rem 0.3rem;
+      font-size: 1rem;
+      padding: 0.6rem 0.8rem;
     }
   }
 
-  /* Ultra-wide screens */
+  /* Wide screens */
   @media (min-width: 1280px) {
     .header-title {
       font-size: 1.75rem;
@@ -157,5 +254,6 @@
 
     .header-link {
       font-size: 1.125rem;
+      padding: 0.3rem 0.6rem;
     }
   }

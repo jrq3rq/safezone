@@ -34,7 +34,8 @@ mantramind/
 │ │ ├── About.css # About page styles
 │ │ └── App.css # Global styles
 │ ├── utils/
-│ │ └── downloadTxt.js # Utility to generate/download TXT files
+│ │  ├── downloadTxt.js
+│ │  └── downloadAudio.js # New: Download PulseFlow audio files
 │ ├── App.js # Main app with routing
 │ ├── firebase.js # Firebase config/initialization
 │ ├── index.js # React app entry point
