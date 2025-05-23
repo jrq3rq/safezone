@@ -70,9 +70,9 @@ mantramind/
 
 ## Tech Stack
 
-- **Frontend**: React (`ChatInterface.js`, `MantraList.js`)
-- **Backend**: Node.js, Firebase (Firestore, Storage)
-- **AI**: xAI Grok API (prompt engineering)
+- **Frontend**: React (`Header.js`, `PulseFlow.js`, `AudioPlayer.js`, `SolfeggioStudio.js`, `ChakraChants.js`, `Frequencies.js`)
+- **Backend**: Node.js, Firebase (Storage, Firestore)
+- **Media**: Audio processing (Audacity for CoreSync Tones, wind/chimes soundscapes)
 - **Community**: GitHub issues
 
 ## Role of PulseFlow Journey in MantraMind:
