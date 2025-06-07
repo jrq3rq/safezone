@@ -1,61 +1,48 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
-const Home = () => {
+function Home() {
   return (
     <div className="home-container">
-      <h1 className="home-title">Welcome to MantraMind</h1>
+      <h1 className="home-title">SafeZone Response</h1>
       <p className="home-description">
-        MantraMind presents PulseFlow Journey, a meditation system using rhythmic sound and mindfulness to unlock relaxation, clarity, and universal connection. Enhance your practice with personalized mantras, Solfeggio frequencies, and chakra chants.
+        As of 01:12 PM PDT, Saturday, June 07, 2025, protect communities from mass casualty events with real-time tools to identify risks and respond to threats.
       </p>
-
       <section className="home-section">
-        <h2 className="home-section-title">PulseFlow Journey</h2>
-        <p className="home-section-text">
-          PulseFlow Journey uses CoreSync Tones—pulsing audio that syncs your brain’s halves—to guide you through Pulse States, from relaxed awareness to spiritual unity. With wind and chimes, clear your mind, breathe rhythmically, and flow with the universe.
-        </p>
-      </section>
-
-      <section className="home-section">
-        <h2 className="home-section-title">How It Works</h2>
+        <h2 className="home-section-title">Key Features</h2>
         <ul className="home-section-list">
-          <li><strong>CoreSync Tones:</strong> Pulsing sounds (e.g., 120 Hz/126 Hz) weave logic and intuition, fostering calm.</li>
-          <li><strong>Energy Weave:</strong> Visualize distractions as a tapestry, set aside in 30s–2 min.</li>
-          <li><strong>Breathing:</strong> Inhale 4s, exhale 6s with ‘hmmm,’ syncing with tones.</li>
-          <li><strong>Mantra:</strong> “I am boundless, flowing with universal rhythms, guided by inner light, safe.”</li>
+          <li>
+            <strong>Vulnerability Forecaster:</strong> Interactive heat map identifies high-risk areas using population density, police resources, and training budgets.
+            <Link to="/vulnerability" className="home-section-link"> Explore Risks</Link>
+          </li>
+          <li>
+            <strong>Escape Route Planner:</strong> Real-time evacuation routes optimized for traffic and crowd density.
+            <Link to="/evacuation" className="home-section-link"> Plan Escape</Link>
+          </li>
+          <li>
+            <strong>Emergency Map:</strong> Live display of incidents, hospitals, responders, and routes.
+            <Link to="/evacuation" className="home-section-link"> View Map</Link>
+          </li>
+          <li>
+            <strong>Real-time Alerts:</strong> Instant notifications for incidents and evacuation updates.
+            <Link to="/alerts" className="home-section-link"> Stay Informed</Link>
+          </li>
         </ul>
-        <p className="home-section-text">
-          <Link to="/pulseflow" className="home-section-link">Explore Pulse States</Link>
-        </p>
       </section>
-
       <section className="home-section">
-        <h2 className="home-section-title">Enhance with Solfeggio & Chakras</h2>
-        <p className="home-section-text">
-          Pair PulseFlow with:
-        </p>
+        <h2 className="home-section-title">Terrorist Attack Context</h2>
         <ul className="home-section-list">
-          <li><strong>Solfeggio Frequencies:</strong> Tones (e.g., 528 Hz) for healing, used in PulseFlow sessions.</li>
-          <li><strong>Seed Mantras:</strong> Chants (e.g., LAM) align chakras, enhancing meditation.</li>
+          <li>Swarm Attacks: Coordinated multi-point assaults (e.g., 2008 Mumbai, 2015 Paris) or drone swarms (e.g., 2019 Saudi oil attack) overwhelm defenses. Counter: Surveillance, counter-drone tech, rapid response.</li>
+          <li>Multi-Location/City Attacks: Simultaneous strikes (e.g., 2004 Madrid, 2005 London) strain resources. Counter: Intelligence-sharing, rapid task forces.</li>
+          <li>Fedayeen Attackers: Sacrificial teams prolong assaults (e.g., 2008 Mumbai, 2013 Nairobi). Counter: Elite units, hardened targets.</li>
+          <li>Reducing 2nd/3rd-Order Effects: Mitigate economic loss, panic. Counter: Quick response, clear communication, resilient infrastructure.</li>
+          <li>Other Tactics: Lone Actors (e.g., 2025 New Orleans), IEDs, Assassinations/CBRN/Cyber, Hostages (e.g., 2023 Hamas). Counter: Online monitoring, detection, protection, rescue ops.</li>
+          <li>Insights: Tech (drones, encryption) aids terrorists; soft targets (concerts) are vulnerable. Use data (e.g., Global Terrorism Database) for prediction, balance security with root-cause fixes.</li>
         </ul>
-        <p className="home-section-text">
-          <Link to="/solfeggio-studio" className="home-section-link">Discover Solfeggio</Link> | <Link to="/chakra-chants" className="home-section-link">Chakra Chants</Link>
-        </p>
-      </section>
-
-      <section className="home-section">
-        <h2 className="home-section-title">Personalized Tools</h2>
-        <p className="home-section-text">
-          Use our AI chatbot to create mantras or action plans, downloadable as text, and share feedback via GitHub to refine our community’s offerings.
-        </p>
-        <p className="home-section-text">
-          <Link to="/mantras" className="home-section-link">Create Your Mantra</Link>
-        </p>
       </section>
     </div>
   );
-};
+}
 
 export default Home;

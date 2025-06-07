@@ -3,17 +3,19 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import Mantras from "./pages/Mantras";
-import About from "./pages/About";
-import Frequencies from "./pages/Frequencies";
-import SolfeggioStudio from "./pages/SolfeggioStudio";
-import Footer from "./components/Footer";
-import ChakraChants from "./pages/ChakraChants";
-import PulseFlow from "./pages/PulseFlow";
+import Vulnerability from "./pages/Vulnerability";
+import Evacuation from "./pages/Evacuation";
+import { useEffect } from 'react';
+import Alerts from "./pages/Alerts";
 
 function App() {
   const location = useLocation();
   const direction = location.state?.direction || 'right';
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const variants = {
     initial: (direction) => ({
@@ -30,7 +32,7 @@ function App() {
       scale: 1,
       boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
       transition: {
-        duration: 0.4, // Faster slide-in
+        duration: 0.4,
         ease: [0.4, 0, 0.2, 1],
       },
     },
@@ -41,7 +43,7 @@ function App() {
       scale: 0.98,
       boxShadow: direction === 'right' ? "5px 0 10px rgba(0, 0, 0, 0.05)" : "-5px 0 10px rgba(0, 0, 0, 0.05)",
       transition: {
-        duration: 0.3, // Faster slide-out
+        duration: 0.3,
         ease: [0.4, 0, 0.2, 1],
         delay: 0.1,
       },
@@ -63,14 +65,12 @@ function App() {
         >
           <Routes location={location}>
             <Route path="/" element={<Home />} />
-            <Route path="/pulseflow" element={<PulseFlow />} />
-            <Route path="/solfeggio-studio" element={<SolfeggioStudio />} />
-            <Route path="/frequencies" element={<Frequencies />} />
-            <Route path="/chakra-chants" element={<ChakraChants />} />
+            <Route path="/vulnerability" element={<Vulnerability />} />
+            <Route path="/evacuation" element={<Evacuation />} />
+            <Route path="/alerts" element={<Alerts />} />
           </Routes>
         </motion.div>
       </AnimatePresence>
-      {/* <Footer /> */}
     </div>
   );
 }

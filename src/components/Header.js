@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { FaOm, FaLeaf, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaShieldAlt } from 'react-icons/fa';
 import '../styles/Header.css';
 
 const Header = () => {
@@ -13,22 +13,19 @@ const Header = () => {
 
   const pageOrder = [
     { path: '/', name: 'Home' },
-    { path: '/pulseflow', name: 'PulseFlow' },
-    { path: '/solfeggio-studio', name: 'Solfeggio' },
-    { path: '/frequencies', name: 'Frequencies' },
-    { path: '/chakra-chants', name: 'Chakras' },
+    { path: '/vulnerability', name: 'Vulnerability' },
+    { path: '/evacuation', name: 'Evacuation' },
+    { path: '/alerts', name: 'Alerts' },
   ];
 
   const getHeaderClass = () => {
     switch (location.pathname) {
-      case '/pulseflow':
-        return 'App-header-pulseflow';
-      case '/solfeggio-studio':
-        return 'App-header-solfeggio';
-      case '/frequencies':
-        return 'App-header-frequencies';
-      case '/chakra-chants':
-        return 'App-header-chakras';
+      case '/vulnerability':
+        return 'App-header-vulnerability';
+      case '/evacuation':
+        return 'App-header-evacuation';
+      case '/alerts':
+        return 'App-header-alerts';
       default:
         return '';
     }
@@ -78,7 +75,7 @@ const Header = () => {
     const handleOutsideClick = (e) => {
       if (
         isMobileMenuOpen &&
-        menuRef.current && // Added null check
+        menuRef.current &&
         toggleButtonRef.current &&
         !menuRef.current.contains(e.target) &&
         !toggleButtonRef.current.contains(e.target)
@@ -108,13 +105,14 @@ const Header = () => {
         <NavLink
           to="/"
           className="header-title-link"
-          aria-label="MantraMind Home"
+          aria-label="SafeZone Response Home"
           onClick={(e) => {
             e.preventDefault();
             handleNavigation('/');
           }}
         >
-          <FaOm className="header-icon" />
+          <FaShieldAlt className="header-icon" />
+          SafeZone
         </NavLink>
       </h1>
       {!isMobileMenuOpen && (
@@ -126,7 +124,7 @@ const Header = () => {
           aria-controls="header-nav"
           aria-label="Open menu"
         >
-          <FaLeaf />
+          <FaBars />
         </button>
       )}
       {isMobileMenuOpen && (
