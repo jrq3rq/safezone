@@ -8,6 +8,8 @@ Thumbs.db
 *.swp
 *.swo
 *.tmp
+# *.bak
+# *.tmp~
 
 # ---------------------------
 # Node.js & NPM/Yarn
@@ -29,6 +31,7 @@ coverage/
 .cache/
 .next/
 out/
+# .vite/
 
 # ---------------------------
 # Firebase
@@ -37,6 +40,7 @@ out/
 .firebase/
 .firebaserc
 firebase-debug.log
+# backend/*.log
 
 # ---------------------------
 # Environment Configs (Frontend & Backend)
@@ -92,3 +96,9 @@ yarn.lock
 .AppleDouble
 .LSOverride
 Icon?
+
+# ---------------------------
+# Custom Additions (if needed)
+# ---------------------------
+
+# src/data/map-cache/
